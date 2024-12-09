@@ -121,3 +121,9 @@ patches:
 ```
 flux reconcile kustomization flux-system --with-source
 ```
+
+- Create a new Helm package for Nginx and deploy to ECR
+```
+mkdir charts
+cd charts
+```
