@@ -6,6 +6,7 @@ Already a pro? Just edit this README.md and make it your own. Want to make it ea
 
 ## Prerequisite
  - Gitlab personal access token require permission scope to grants complete read/write access to the API.
+ - [Helm CLI install](https://helm.sh/docs/intro/install/)
  - [Flux CLI install](https://fluxcd.io/flux/installation/#install-the-flux-cli)
  - [AWS CLI install](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html#getting-started-install-instructions)
  - [eksctl CLI install](https://eksctl.io/installation/) (Optional)
@@ -149,4 +150,20 @@ helm package .
 aws ecr get-login-password --region ap-southeast-1 | helm registry login --username AWS --password-stdin accountID.dkr.ecr.ap-southeast-1.amazonaws.com
 # aws-eks-fluxcd is also the name of ECR repository
 helm push aws-eks-fluxcd-0.1.0.tgz oci://accountID.dkr.ecr.ap-southeast-1.amazonaws.com
+```
+
+## Deploy nginx from ECR to EKS cluster using Helm repository
+
+- Create a new Helm repository file called `ecr.yaml` in `clusters/eks` directory with the following contents
+```
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: HelmRepository
+metadata:
+  name: ecr
+  namespace: default
+spec:
+  type: oci
+  interval: 5m0s
+  url: oci://accoundID.dkr.ecr.eu-west-1.amazonaws.com
+  provider: aws
 ```

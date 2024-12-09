@@ -1,0 +1,10 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: HelmRepository
+metadata:
+  name: ecr
+  namespace: default
+spec:
+  type: oci
+  interval: 5m0s
+  url: oci://799067542302.dkr.ecr.ap-southeast-1.amazonaws.com
+  provider: aws
