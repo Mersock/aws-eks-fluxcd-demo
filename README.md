@@ -118,7 +118,7 @@ patches:
         namespace: flux-system
 ```
 
-- Reconcile Flux CD (no waiting internal time to auto reconcile)
+- Reconcile Flux CD (no waiting for interval time to auto reconcile)
 ```
 flux reconcile kustomization flux-system --with-source
 ```
