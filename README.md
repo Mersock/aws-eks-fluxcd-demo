@@ -28,3 +28,19 @@ git push -uf origin main
 
  - [AWS CLI install](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html#getting-started-install-instructions)
  - [eksctl CLI Install](https://eksctl.io/installation/) (Optional)
+
+## Install
+ - Create an EKS cluster using the following command (Optiontal)
+```
+eksctl create cluster \
+--name fluxcd-demo-cluster \
+--version auto \
+--region ap-southeast-1 \
+--nodegroup-name fluxcd-demo-group \
+--node-type t3.large \
+--nodes 1 \
+--nodes-min 1 \
+--nodes-max 2 \
+--managed \
+--with-oidc
+```
