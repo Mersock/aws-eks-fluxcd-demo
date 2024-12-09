@@ -6,6 +6,7 @@ Already a pro? Just edit this README.md and make it your own. Want to make it ea
 
 ## Prerequisite
  - Gitlab personal access token require permission scope to grants complete read/write access to the API.
+ - [Kubectl CLI install](https://kubernetes.io/docs/tasks/tools/)
  - [Helm CLI install](https://helm.sh/docs/intro/install/)
  - [Flux CLI install](https://fluxcd.io/flux/installation/#install-the-flux-cli)
  - [AWS CLI install](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html#getting-started-install-instructions)
