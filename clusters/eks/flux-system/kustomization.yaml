@@ -9,6 +9,7 @@ patches:
       kind: ServiceAccount
       metadata:
         name: source-controller
+        namespace: flux-system
         annotations:
           eks.amazonaws.com/role-arn: "arn:aws:iam::799067542302:role/FluxCDECR" 
       target:
