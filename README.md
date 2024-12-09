@@ -10,7 +10,7 @@ Already a pro? Just edit this README.md and make it your own. Want to make it ea
  - [AWS CLI install](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html#getting-started-install-instructions)
  - [eksctl CLI install](https://eksctl.io/installation/) (Optional)
 
-## Install
+## Install FluxCD in AWS EKS cluster
  - Create an EKS cluster using the following command and then setup kubeconfig (fluxcd-demo-cluster.conf) (Optiontal)
 ```
 eksctl create cluster \
@@ -93,6 +93,7 @@ flux bootstrap gitlab --owner=true-dc-exist/poc --repository=aws-eks-fluxcd --br
 ```
 git pull
 ```
+## Setup FluxCD
 
 - In the `clusters/eks/flux-system` directory, modify the Kustomization to be as follows then push to main branch.
 
