@@ -141,6 +141,7 @@ helm create nginx
 ```
 
 - Package chart and push chart to ECR repository
+
 Important! Before package and push uppdate name in `Chart.yaml` to the same name wit ECR repository 
 
 ```
