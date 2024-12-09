@@ -71,7 +71,7 @@ aws iam attach-role-policy --role-name FluxCDECR --policy-arn arn:aws:iam::aws:p
 
 - IAM console and and copy role's ARN
 
-![eks-console](https://gitlab.com/true-dc-exist/poc/aws-eks-fluxcd/-/raw/main/iam-role.jpg)
+![iam-role](https://gitlab.com/true-dc-exist/poc/aws-eks-fluxcd/-/raw/main/iam-role.jpg)
 
 - Create a directory for the EKS cluster
 
