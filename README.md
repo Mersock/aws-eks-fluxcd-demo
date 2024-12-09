@@ -12,7 +12,7 @@ This repository demonstrates how to install and configure FluxCD to deploy an ap
  - [AWS CLI install](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html#getting-started-install-instructions)
  - [eksctl CLI install](https://eksctl.io/installation/) (Optional)
 
-## STEP
+## Steps
 - [Install FluxCD in AWS EKS cluster](https://gitlab.com/true-dc-exist/poc/aws-eks-fluxcd#install-fluxcd-in-aws-eks-cluster)
 - [Setup FluxCD](https://gitlab.com/true-dc-exist/poc/aws-eks-fluxcd#setup-fluxcd)
 - [Push chart to ECR](https://gitlab.com/true-dc-exist/poc/aws-eks-fluxcd#push-chart-to-ecr)
