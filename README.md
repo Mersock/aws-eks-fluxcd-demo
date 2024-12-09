@@ -1,8 +1,6 @@
 ## Getting started
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
-
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+This repository demonstrates how to install and configure FluxCD to deploy an application on an EKS cluster by pulling images from ECR. Follow these steps!
 
 ## Prerequisite
  - Gitlab personal access token require permission scope to grants complete read/write access to the API.
@@ -11,6 +9,12 @@ Already a pro? Just edit this README.md and make it your own. Want to make it ea
  - [Flux CLI install](https://fluxcd.io/flux/installation/#install-the-flux-cli)
  - [AWS CLI install](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html#getting-started-install-instructions)
  - [eksctl CLI install](https://eksctl.io/installation/) (Optional)
+
+## STEP
+- [Install FluxCD in AWS EKS cluster](https://gitlab.com/true-dc-exist/poc/aws-eks-fluxcd#install-fluxcd-in-aws-eks-cluster)
+- [Setup FluxCD](https://gitlab.com/true-dc-exist/poc/aws-eks-fluxcd#setup-fluxcd)
+- [Push chart to ECR](https://gitlab.com/true-dc-exist/poc/aws-eks-fluxcd#push-chart-to-ecr)
+- [Deploy nginx from ECR to EKS cluster using Helm repository](https://gitlab.com/true-dc-exist/poc/aws-eks-fluxcd#deploy-nginx-from-ecr-to-eks-cluster-using-helm-repository)
 
 ## Install FluxCD in AWS EKS cluster
  - Create an EKS cluster using the following command and then setup kubeconfig (fluxcd-demo-cluster.conf) (Optiontal)
