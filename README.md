@@ -75,6 +75,6 @@ aws iam create-role --role-name FluxCDECR --assume-role-policy-document file://t
 aws iam attach-role-policy --role-name FluxCDECR --policy-arn arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly
 ```
 
---  IAM console and and copy role's ARN
+- IAM console and and copy role's ARN
 
 ![eks-console](https://gitlab.com/true-dc-exist/poc/aws-eks-fluxcd/-/raw/main/iam-role.jpg)
