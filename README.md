@@ -6,8 +6,9 @@ Already a pro? Just edit this README.md and make it your own. Want to make it ea
 
 ## Prerequisite
  - Gitlab personal access token require permission scope to grants complete read/write access to the API.
+ - [Flux CLI install](https://fluxcd.io/flux/installation/#install-the-flux-cli)
  - [AWS CLI install](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html#getting-started-install-instructions)
- - [eksctl CLI Install](https://eksctl.io/installation/) (Optional)
+ - [eksctl CLI install](https://eksctl.io/installation/) (Optional)
 
 ## Install
  - Create an EKS cluster using the following command (Optiontal)
