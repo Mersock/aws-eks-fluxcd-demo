@@ -44,3 +44,37 @@ eksctl create cluster \
 --managed \
 --with-oidc
 ```
+
+- Create a trust.json policy that contains the following (replace accountID and clusterID with the respective values: your account ID, and the clusterID from the EKS page.)
+
+--image=eks-console.jpg
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "Federated": "arn:aws:iam::<accountID>:oidc-provider/oidc.eks.eu-west-1.amazonaws.com/id/<clusterID>"
+            },
+            "Action": "sts:AssumeRoleWithWebIdentity",
+            "Condition": {
+                "StringEquals": {
+                    "oidc.eks.eu-west-1.amazonaws.com/id/<clusterID>:sub": "system:serviceaccount:flux-system:source-controller",
+                    "oidc.eks.eu-west-1.amazonaws.com/id/<clusterID>:aud": "sts.amazonaws.com"
+                }
+            }
+        }
+    ]
+}
+```
+- Create the role, attach the trust policy and the ECR readonly policy
+```
+aws iam create-role --role-name FluxCDECR --assume-role-policy-document file://trust.json
+
+aws iam attach-role-policy --role-name FluxCDECR --policy-arn arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly
+```
+
+--  IAM console and and copy role's ARN
+-- image

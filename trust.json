@@ -1,0 +1,18 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "Federated": "arn:aws:iam::799067542302:oidc-provider/oidc.eks.eu-west-1.amazonaws.com/id/5F3E47E1A54044273F7D02E95C2E1B69"
+            },
+            "Action": "sts:AssumeRoleWithWebIdentity",
+            "Condition": {
+                "StringEquals": {
+                    "oidc.eks.eu-west-1.amazonaws.com/id/5F3E47E1A54044273F7D02E95C2E1B69:sub": "system:serviceaccount:flux-system:source-controller",
+                    "oidc.eks.eu-west-1.amazonaws.com/id/5F3E47E1A54044273F7D02E95C2E1B69:aud": "sts.amazonaws.com"
+                }
+            }
+        }
+    ]
+}
