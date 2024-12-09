@@ -140,7 +140,8 @@ cd charts
 helm create nginx
 ```
 
-- Important! Update name in `Chart.yaml` to the same name wit ECR repository 
+- Package chart and push chart to ECR repository
+Important! Before package and push uppdate name in `Chart.yaml` to the same name wit ECR repository 
 
 ```
 helm package .
