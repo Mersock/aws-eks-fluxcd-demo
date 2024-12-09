@@ -108,11 +108,13 @@ patches:
       kind: ServiceAccount
       metadata:
         name: source-controller
+        namespace: flux-system
         annotations:
           eks.amazonaws.com/role-arn: "arn:aws:iam::accountID:role/FluxCDECR" 
       target:
         kind: ServiceAccount
         name: source-controller
+        namespace: flux-system
 ```
 
 - Reconcile Flux CD (no waiting internal time to auto reconcile)
