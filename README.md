@@ -97,7 +97,7 @@ git pull
 ## Setup FluxCD
 - In the `clusters/eks/flux-system` directory, modify the Kustomization to be as follows then push to main branch.
 
-PS. Don't forget to change ARN from the IAM role create in the previous step.
+PS. Don't forget to change ARN from the IAM role create in the previous step. And if put wrong ARN then EKS well be able to pull chart from ECR.
 ```
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
