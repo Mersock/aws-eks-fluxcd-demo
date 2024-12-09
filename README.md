@@ -21,6 +21,7 @@ This repository demonstrates how to install and configure FluxCD to deploy an ap
 ## Install FluxCD in AWS EKS cluster
  - Create an EKS cluster using the following command and then setup kubeconfig (fluxcd-demo-cluster.conf) (Optiontal)
 ```
+# Create EKS cluster
 eksctl create cluster \
 --name fluxcd-demo-cluster \
 --version auto \
@@ -33,6 +34,7 @@ eksctl create cluster \
 --managed \
 --with-oidc
 
+# Setup Kubeconfig
 aws eks update-kubeconfig --name fluxcd-demo-cluster --region ap-southeast-1  --kubeconfig ~/.kube/fluxcd-demo-cluster.conf
 ```
 
