@@ -124,6 +124,17 @@ flux reconcile kustomization flux-system --with-source
 
 - Create a new Helm package for Nginx and deploy to ECR
 ```
+#At root directory
 mkdir charts
 cd charts
+helm create nginx
+```
+
+- Important! Update name in `Chart.yaml` to the same name wit ECR repository 
+
+```
+helm package .
+aws ecr get-login-password --region ap-southeast-1 | helm registry login --username AWS --password-stdin accountID.dkr.ecr.ap-southeast-1.amazonaws.com
+# aws-eks-fluxcd is also the name in ECR repository
+helm push aws-eks-fluxcd-0.1.0.tgz oci://accountID.dkr.ecr.ap-southeast-1.amazonaws.com
 ```
