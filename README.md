@@ -190,7 +190,11 @@ spec:
 - Push to main branch and check the OCI repository, the Helm release, and the pods.
 ```
 git push 
-kubectl get helmrepository
-kubectl get helmrelease
-kubectl get pods
+kubectl get helmrepository,helmrelease,pods
+NAME                                          URL                                                       AGE    READY   STATUS
+helmrepository.source.toolkit.fluxcd.io/ecr   oci://799067542302.dkr.ecr.ap-southeast-1.amazonaws.com   8m4s           
+NAME                                       AGE    READY   STATUS
+helmrelease.helm.toolkit.fluxcd.io/nginx   4m2s   True    Helm install succeeded for release default/nginx.v1 with chart aws-eks-fluxcd@0.1.0
+NAME                                       READY   STATUS    RESTARTS   AGE
+pod/nginx-aws-eks-fluxcd-96c9675b6-lkrv9   1/1     Running   0          91s
 ```
