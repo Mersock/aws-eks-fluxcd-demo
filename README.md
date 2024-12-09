@@ -1,6 +1,8 @@
 ## Getting started
 
-This repository demonstrates how to install and configure FluxCD to deploy an application on an EKS cluster by pulling images from ECR. Follow these steps!
+This repository demonstrates how to install and configure FluxCD to deploy an application on an EKS cluster by pulling images from ECR.
+
+!Important If you want to practice by follow these steps please create new repository.
 
 ## Prerequisite
  - Gitlab personal access token require permission scope to grants complete read/write access to the API.
