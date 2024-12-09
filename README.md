@@ -147,6 +147,6 @@ Important! Before package and push uppdate name in `Chart.yaml` to the same name
 ```
 helm package .
 aws ecr get-login-password --region ap-southeast-1 | helm registry login --username AWS --password-stdin accountID.dkr.ecr.ap-southeast-1.amazonaws.com
-# aws-eks-fluxcd is also the name in ECR repository
+# aws-eks-fluxcd is also the name of ECR repository
 helm push aws-eks-fluxcd-0.1.0.tgz oci://accountID.dkr.ecr.ap-southeast-1.amazonaws.com
 ```
