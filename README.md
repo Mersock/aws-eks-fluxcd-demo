@@ -114,3 +114,8 @@ patches:
         kind: ServiceAccount
         name: source-controller
 ```
+
+- Reconcile Flux CD (no waiting internal time to auto reconcile)
+```
+flux reconcile kustomization flux-system --with-source
+```
