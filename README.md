@@ -69,5 +69,8 @@ mkdir -p  myfluxrepo/clusters/eks
 ```
 export GITLAB_TOKEN=<Gitlab personal token>
 
-flux bootstrap gitlab --owner=abohmeed --repository=fluxrepotest --branch=main --path=clusters/eks --token-auth --personal
+# Pattern command to bootstrap fluxcd
+flux bootstrap gitlab --owner=<username or email> --repository=<repository name> --branch=main --path=clusters/eks --token-auth --personal
+# This command using in this repository
+flux bootstrap gitlab --owner=mersock --repository=true-dc-exist/poc/aws-eks-fluxcd --branch=main --path=clusters/eks --token-auth --personal
 ```
