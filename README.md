@@ -46,7 +46,8 @@ eksctl create cluster \
 ```
 
 - Create a trust.json policy that contains the following (replace accountID and clusterID with the respective values: your account ID, and the clusterID from the EKS page.)
-![eks-console](https://gitlab.com/true-dc-exist/poc/aws-eks-fluxcd/-/blob/main/eks-console.jpg)
+
+![eks-console](https://gitlab.com/true-dc-exist/poc/aws-eks-fluxcd/-/raw/main/eks-console.jpg)
 ```
 {
     "Version": "2012-10-17",
@@ -75,4 +76,5 @@ aws iam attach-role-policy --role-name FluxCDECR --policy-arn arn:aws:iam::aws:p
 ```
 
 --  IAM console and and copy role's ARN
-![eks-console](https://gitlab.com/true-dc-exist/poc/aws-eks-fluxcd/-/blob/main/iam-role.jpg)
+
+![eks-console](https://gitlab.com/true-dc-exist/poc/aws-eks-fluxcd/-/raw/main/iam-role.jpg)
