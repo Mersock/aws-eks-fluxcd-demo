@@ -94,7 +94,6 @@ flux bootstrap gitlab --owner=true-dc-exist/poc --repository=aws-eks-fluxcd --br
 git pull
 ```
 ## Setup FluxCD
-
 - In the `clusters/eks/flux-system` directory, modify the Kustomization to be as follows then push to main branch.
 
 PS. Don't forget to change ARN from the IAM role create in the previous step.
@@ -122,8 +121,17 @@ patches:
 - Reconcile Flux CD (no waiting for interval time to auto reconcile)
 ```
 flux reconcile kustomization flux-system --with-source
+► annotating GitRepository flux-system in flux-system namespace
+✔ GitRepository annotated
+◎ waiting for GitRepository reconciliation
+✔ fetched revision main@sha1:e77b15f9f462c7c721d1f294fd24e4ee9e054af2
+► annotating Kustomization flux-system in flux-system namespace
+✔ Kustomization annotated
+◎ waiting for Kustomization reconciliation
+✔ applied revision main@sha1:e77b15f9f462c7c721d1f294fd24e4ee9e054af2
 ```
 
+## Push chart to ECR
 - Create a new Helm package for Nginx and deploy to ECR
 ```
 #At root directory
