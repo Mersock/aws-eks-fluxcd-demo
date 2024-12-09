@@ -167,3 +167,30 @@ spec:
   url: oci://accoundID.dkr.ecr.eu-west-1.amazonaws.com
   provider: aws
 ```
+- Create a new Helm Release that install Apache and called it `nginx-helm-release.yaml`.
+```
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: nginx
+  namespace: default
+spec:
+  interval: 5m
+  chart:
+    spec:
+      chart: nginx
+      version: '0.1.0'
+      sourceRef:
+        kind: HelmRepository
+        name: ecr
+        namespace: default
+      interval: 1m
+```
+
+- Push to main branch and check the OCI repository, the Helm release, and the pods.
+```
+git push 
+kubectl get helmrepository
+kubectl get helmrelease
+kubectl get pods
+```
