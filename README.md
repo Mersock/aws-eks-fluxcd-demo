@@ -95,6 +95,7 @@ git pull
 ```
 
 - In the `clusters/eks/flux-system` directory, modify the Kustomization to be as follows then push to main branch.
+
 PS. Don't forget to change ARN from the IAM role create in the previous step.
 ```
 apiVersion: kustomize.config.k8s.io/v1beta1
