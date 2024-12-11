@@ -19,7 +19,7 @@ This repository demonstrates how to install and configure FluxCD to deploy an ap
 - [Deploy nginx from ECR to EKS cluster using Helm repository](https://gitlab.com/true-dc-exist/poc/aws-eks-fluxcd#deploy-nginx-from-ecr-to-eks-cluster-using-helm-repository)
 
 ## Install FluxCD in AWS EKS cluster
- - Create an EKS cluster using the following command and then setup kubeconfig (fluxcd-demo-cluster.conf) (Optiontal)
+ - Create an EKS cluster using the following command and then setup kubeconfig (fluxcd-demo-cluster.conf) (Optional)
 ```
 # Create EKS cluster
 $ eksctl create cluster \
