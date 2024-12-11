@@ -22,7 +22,7 @@ This repository demonstrates how to install and configure FluxCD to deploy an ap
  - Create an EKS cluster using the following command and then setup kubeconfig (fluxcd-demo-cluster.conf) (Optiontal)
 ```
 # Create EKS cluster
-eksctl create cluster \
+$ eksctl create cluster \
 --name fluxcd-demo-cluster \
 --version auto \
 --region ap-southeast-1 \
@@ -35,7 +35,7 @@ eksctl create cluster \
 --with-oidc
 
 # Setup Kubeconfig
-aws eks update-kubeconfig --name fluxcd-demo-cluster --region ap-southeast-1  --kubeconfig ~/.kube/fluxcd-demo-cluster.conf
+$ aws eks update-kubeconfig --name fluxcd-demo-cluster --region ap-southeast-1  --kubeconfig ~/.kube/fluxcd-demo-cluster.conf
 ```
 
 
@@ -64,9 +64,9 @@ aws eks update-kubeconfig --name fluxcd-demo-cluster --region ap-southeast-1  --
 ```
 - Create the role, attach the trust policy and the ECR readonly policy
 ```
-aws iam create-role --role-name FluxCDECR --assume-role-policy-document file://trust.json
+$ aws iam create-role --role-name FluxCDECR --assume-role-policy-document file://trust.json
 
-aws iam attach-role-policy --role-name FluxCDECR --policy-arn arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly
+$ aws iam attach-role-policy --role-name FluxCDECR --policy-arn arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly
 ```
 
 - IAM console and and copy role's ARN
@@ -76,17 +76,17 @@ aws iam attach-role-policy --role-name FluxCDECR --policy-arn arn:aws:iam::aws:p
 - Create a directory for the EKS cluster
 
 ```
-mkdir -p  clusters/eks
+$ mkdir -p  clusters/eks
 ```
 
 - Boot Flux CD with the new EKS cluster
 ```
-export GITLAB_TOKEN=<Gitlab personal token>
+$ export GITLAB_TOKEN=<Gitlab personal token>
 
 # Pattern command to bootstrap fluxcd
-flux bootstrap gitlab --owner=<gitlab group/subgroup if thers no group using username or email> --repository=<repository name> --branch=main --path=clusters/eks --token-auth --personal
+$ flux bootstrap gitlab --owner=<gitlab group/subgroup if thers no group using username or email> --repository=<repository name> --branch=main --path=clusters/eks --token-auth --personal
 # This command using in this repository
-flux bootstrap gitlab --owner=true-dc-exist/poc --repository=aws-eks-fluxcd --branch=main --path=clusters/eks --token-auth --personal
+$ flux bootstrap gitlab --owner=true-dc-exist/poc --repository=aws-eks-fluxcd --branch=main --path=clusters/eks --token-auth --personal
 # Result should be as follows
 .
 .
@@ -101,7 +101,7 @@ flux bootstrap gitlab --owner=true-dc-exist/poc --repository=aws-eks-fluxcd --br
 
 - Pull the changes that Flux CD did to the cluster
 ```
-git pull
+$ git pull
 ```
 ## Setup FluxCD
 - In the `clusters/eks/flux-system` directory, modify the Kustomization to be as follows then push to main branch.
@@ -130,7 +130,8 @@ patches:
 
 - Reconcile Flux CD (no waiting for interval time to auto reconcile)
 ```
-flux reconcile kustomization flux-system --with-source
+$ flux reconcile kustomization flux-system --with-source
+
 ► annotating GitRepository flux-system in flux-system namespace
 ✔ GitRepository annotated
 ◎ waiting for GitRepository reconciliation
@@ -145,9 +146,9 @@ flux reconcile kustomization flux-system --with-source
 - Create a new Helm package for Nginx and deploy to ECR
 ```
 #At root directory
-mkdir charts
-cd charts
-helm create nginx
+$ mkdir charts
+$ cd charts
+$ helm create nginx
 ```
 
 - Package chart and push chart to ECR repository
@@ -155,10 +156,10 @@ helm create nginx
 Important! Before package and push uppdate name in `Chart.yaml` to the same name wit ECR repository 
 
 ```
-helm package .
-aws ecr get-login-password --region ap-southeast-1 | helm registry login --username AWS --password-stdin accountID.dkr.ecr.ap-southeast-1.amazonaws.com
+$ helm package .
+$ aws ecr get-login-password --region ap-southeast-1 | helm registry login --username AWS --password-stdin accountID.dkr.ecr.ap-southeast-1.amazonaws.com
 # aws-eks-fluxcd is also the name of ECR repository
-helm push aws-eks-fluxcd-0.1.0.tgz oci://accountID.dkr.ecr.ap-southeast-1.amazonaws.com
+$ helm push aws-eks-fluxcd-0.1.0.tgz oci://accountID.dkr.ecr.ap-southeast-1.amazonaws.com
 ```
 
 ## Deploy nginx from ECR to EKS cluster using Helm repository
@@ -198,8 +199,8 @@ spec:
 
 - Push to main branch and check the OCI repository, the Helm release, and the pods.
 ```
-git push 
-kubectl get helmrepository,helmrelease,pods
+$ git push 
+$ kubectl get helmrepository,helmrelease,pods
 NAME                                          URL                                                       AGE    READY   STATUS
 helmrepository.source.toolkit.fluxcd.io/ecr   oci://799067542302.dkr.ecr.ap-southeast-1.amazonaws.com   8m4s           
 NAME                                       AGE    READY   STATUS
