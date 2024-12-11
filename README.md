@@ -39,10 +39,11 @@ $ aws eks update-kubeconfig --name fluxcd-demo-cluster --region ap-southeast-1  
 ```
 
 
-- Create a trust.json policy that contains the following (replace accountID and clusterID with the respective values: your account ID, and the clusterID from the EKS page.)
+- Create a `trust.json` policy that contains the following (replace accountID and clusterID with the respective values: your account ID, and the clusterID from the EKS page.)
 
 ![eks-console](https://gitlab.com/true-dc-exist/poc/aws-eks-fluxcd/-/raw/main/eks-console.jpg)
 ```
+# trust.json
 {
     "Version": "2012-10-17",
     "Statement": [
