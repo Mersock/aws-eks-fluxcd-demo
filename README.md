@@ -6,6 +6,7 @@ This repository demonstrates how to install and configure FluxCD to deploy an ap
 
 ## Prerequisite
  - Gitlab personal access token require permission scope to grants complete read/write access to the API.
+ - [ECR repository](https://aws.amazon.com/ecr/)
  - [Kubectl CLI install](https://kubernetes.io/docs/tasks/tools/)
  - [Helm CLI install](https://helm.sh/docs/intro/install/)
  - [Flux CLI install](https://fluxcd.io/flux/installation/#install-the-flux-cli)
