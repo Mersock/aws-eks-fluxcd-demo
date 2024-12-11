@@ -86,7 +86,8 @@ $ export GITLAB_TOKEN=<Gitlab personal token>
 
 # Pattern command to bootstrap fluxcd
 $ flux bootstrap gitlab --owner=<gitlab group/subgroup if thers no group using username or email> --repository=<repository name> --branch=main --path=clusters/eks --token-auth --personal
-# This command using in this repository
+
+# This command using only in this repository!!!
 $ flux bootstrap gitlab --owner=true-dc-exist/poc --repository=aws-eks-fluxcd --branch=main --path=clusters/eks --token-auth --personal
 # Result should be as follows
 .
